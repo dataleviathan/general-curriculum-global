@@ -19,13 +19,19 @@ This project builds a semantic “general curriculum” map across 14 institutio
 
 Input dataset (clean_text_global.xlsx) contains the following columns:
 
-institution: Institution name (14 total)
-course_id: Unique identifier for each course
-course_title: Course title (pre-deduplicated)
-course_description: Cleaned and preprocessed course text
-journal_title: Matched journal title
-journal_abstract: Preprocessed abstract text
-subject_area: subject collection label
+• institution: Institution name (14 total)
+
+• course_id: Unique identifier for each course
+
+• course_title: Course title (pre-deduplicated)
+
+• course_description: Cleaned and preprocessed course text
+
+• journal_title: Matched journal title
+
+• journal_abstract: Preprocessed abstract text
+
+• subject_area: subject collection label
 
 ## Methodology
 
@@ -67,10 +73,13 @@ subject_area: subject collection label
 
 Output file: general_curriculum_global.xlsx
 
-Families_Summary: Each course family with inferred departments, #courses, #institutions
-Family_TopJournals: Top 5 journals per family (with similarity scores)
-Courses_to_Families: All courses and their assigned families
-Coverage_Pivot: Institution × Family matrix (for coverage heatmap)
+• Families_Summary: Each course family with inferred departments, #courses, #institutions
+
+• Family_TopJournals: Top 5 journals per family (with similarity scores)
+
+• Courses_to_Families: All courses and their assigned families
+
+• Coverage_Pivot: Institution × Family matrix (for coverage heatmap)
 
 ## Key Insights
 
@@ -82,11 +91,15 @@ Coverage_Pivot: Institution × Family matrix (for coverage heatmap)
 
 ## Tech Stack
 
-Language Model: Sentence-BERT (all-MiniLM-L6-v2)
-Clustering: KMeans (scikit-learn)
-Similarity Metric: Cosine similarity
-Visualization / Export: pandas + openpyxl
-Runtime Environment: Google Colab (GPU optional)
+• Language Model: Sentence-BERT (all-MiniLM-L6-v2)
+
+• Clustering: KMeans (scikit-learn)
+
+• Similarity Metric: Cosine similarity
+
+• Visualization / Export: pandas + openpyxl
+
+• Runtime Environment: Google Colab (GPU optional)
 
 ## Repository Structure
 ├── clean_text_global.xlsx
