@@ -101,12 +101,6 @@ Output file: general_curriculum_global.xlsx
 
 • Runtime Environment: Google Colab (GPU optional)
 
-## Repository Structure
-├── clean_text_global.xlsx
-├── general_curriculum_global.xlsx
-├── general_curriculum_global.ipynb
-└── README.md
-
 ## Next Steps
 
 • Add visualization layer (heatmap for coverage pivot, Sankey linking families <=> journals).
