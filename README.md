@@ -8,8 +8,11 @@ This project builds a semantic “general curriculum” map across 14 institutio
 ## Objectives
 
 • Group semantically similar courses across institutions into coherent “course families.”
+
 • Infer fine-grained departments automatically (e.g., Psychology, Sociology, Political Science) without relying on predefined high-level categories.
+
 • Link each course family to journals most closely aligned in subject matter.
+
 • Deliver an interpretable Excel for Product and Sales teams showing curriculum coverage and journal alignment.
 
 ## Data
@@ -29,26 +32,35 @@ subject_area: subject collection label
 ### Embedding Generation
 
 • Model: sentence-transformers/all-MiniLM-L6-v2
+
 • Approach: Encode each course description and journal abstract into 384-dimensional embeddings.
+
 • Normalization: All embeddings are L2-normalized for cosine similarity.
 
 ### Course Family Clustering
 
 • Method: KMeans clustering on course embeddings.
+
 • Hyperparameter: K = 50 (empirically chosen for balance between granularity and interpretability).
+
 • Output: Each cluster represents a course family (e.g., “Social Psychology,” “Strategic Management”).
+
 • Family names are inferred from representative course titles.
 
 ### Department Inference
 
 • Each family centroid (mean embedding of its courses) is compared against SBERT embeddings of canonical department names.
+
 • The top-2 most similar departments are assigned as primary and secondary fields.
+
 • This allows automatic classification into domains like Psychology, Economics, Political Science, etc.
 
 ### Journal Mapping
 
 • For each family, compute cosine similarity between its centroid and all journal embeddings.
+
 • Select the Top 5 most semantically similar journals.
+
 • This identifies which journals best support or align with the curricular themes.
 
 ## Deliverables
@@ -63,7 +75,9 @@ Coverage_Pivot: Institution × Family matrix (for coverage heatmap)
 ## Key Insights
 
 • SBERT captures conceptual similarity (e.g., “Social Psychology” and “Cognitive Psychology” cluster together even if titles differ).
+
 • The approach scales easily across institutions and does not require manual labeling.
+
 • Similarity scores between 0.6–0.75 indicate strong conceptual overlap between course families and journals.
 
 ## Tech Stack
@@ -83,5 +97,7 @@ Runtime Environment: Google Colab (GPU optional)
 ## Next Steps
 
 • Add visualization layer (heatmap for coverage pivot, Sankey linking families <=> journals).
+
 • Explore hierarchical clustering or topic modeling to refine large families.
+
 • Integrate with metadata APIs to enrich journal context.
